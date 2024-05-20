@@ -1,0 +1,39 @@
+Funcionalidades
+Gerenciamento de Usuários:
+Criação de um novo usuário com nome, email e senha.
+Atualização, listagem e exclusão de usuários.
+
+Autenticação:
+Login de usuários através de email e senha, retornando um token JWT.
+Verificação do token JWT para acesso a rotas protegidas.
+
+Estrutura de Dados:
+Cada usuário é representado por um documento MongoDB contendo nome, email, senha (criptografada) e timestamps de criação e modificação.
+Tecnologias Utilizadas
+JavaScript: Linguagem de programação principal.
+Express.js: Framework para criar o servidor e definir rotas.
+MongoDB: Banco de dados NoSQL para armazenar as informações dos usuários.
+Mongoose: Biblioteca ODM para interagir com o MongoDB.
+JWT: Para autenticação de usuários e controle de acesso.
+Dotenv: Para gerenciar variáveis de ambiente, incluindo as de configuração do banco de dados e chaves secretas.
+
+Estrutura do Projeto:
+server.js: Inicia o servidor Express e define as rotas.
+database.js: Configura a conexão com o banco de dados MongoDB.
+models/User.js: Define o esquema do modelo de usuário para o MongoDB.
+controllers: Contém as funções de controle que manipulam as rotas.
+routes: Define as rotas principais e as associa a seus respectivos controladores.
+repositories: Contém a lógica de manipulação de dados (CRUD) diretamente no banco de dados.
+
+Como Usar a API
+Criar um Usuário:
+Método: POST
+Rota: /
+Payload: { "name": "Nome", "email": "email@exemplo.com", "password": "senha" }
+Login:
+Método: POST
+Rota: /login
+Payload: { "email": "email@exemplo.com", "password": "senha" }
+Outras Rotas:
+/: Listar todos os usuários.
+/:id: Atualizar ou deletar um usuário específico.
